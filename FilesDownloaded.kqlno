@@ -1,0 +1,5 @@
+DeviceFileEvents
+| where ActionType in ("FileDownloaded", "FileCreated")  // Adjust as needed
+| where FileName contains "example.txt"  // Replace with your file name or use `has`, `startswith`, etc.
+| project Timestamp, DeviceName, InitiatingProcessAccountName, FileName, FolderPath, SHA256, ReportId
+| order by Timestamp desc
